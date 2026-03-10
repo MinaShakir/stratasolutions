@@ -1531,3 +1531,104 @@ footer, .site-footer {
     list-style: none !important;
     text-decoration: none !important;
 }
+/* 1. LOGOS: Header and Footer Growth */
+.logo-image-wrapper, 
+.footer-branding img, 
+.site-logo {
+    display: block !important;
+    height: 140px !important; /* Increased for visibility */
+    width: auto !important;
+    max-width: none !important;
+}
+
+/* 2. BRANDING: Moving Name and Subtitle closer to Logo */
+.brand-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important; /* Tightened space */
+}
+
+.brand-text {
+    margin-left: -5px !important; /* Pulls text closer to the logo image */
+    text-align: left !important;
+}
+
+/* 3. TOP BAR: Forcing Single Line Alignment */
+.header-top .container, 
+.top-bar .container {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Forces one single row */
+    justify-content: flex-end !important;
+    gap: 20px !important;
+    padding: 5px 20px !important;
+}
+
+.top-bar-item, 
+.contact-info-top {
+    white-space: nowrap !important; /* Prevents wrapping */
+    font-size: 13px !important;
+}
+
+/* 4. TESTIMONIALS: Flexible Boxes (Words stay inside) */
+.testimonial-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 15px !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+}
+
+.testimonial-item {
+    flex: 1 !important;
+    max-width: 320px !important;
+    padding: 20px !important;
+    height: auto !important; /* Allows box to grow with the words */
+    min-height: 200px !important;
+}
+
+/* 5. CONTACT FORM: Compressed Width and Length */
+.contact-grid {
+    display: flex !important;
+    justify-content: center !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    gap: 40px !important;
+}
+
+.contact-info-col {
+    flex: 1 !important;
+    font-size: 14px !important; /* Compresses details words */
+}
+
+.contact-form-col {
+    flex: 0 1 380px !important; /* Tightens width */
+}
+
+.contact-form-col input {
+    height: 35px !important; /* Reduces input length */
+}
+
+.contact-form-col textarea {
+    height: 85px !important; /* Strictly reduces message box length */
+}
+
+/* 6. FOOTER: White Background / Black Words */
+footer, .site-footer {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-top: 1px solid #ddd !important;
+}
+
+.footer-grid {
+    display: flex !important;
+    justify-content: space-between !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+}
+
+.footer-column, .footer-column h3, .footer-column p, .footer-column a, .footer-column li {
+    color: #000000 !important;
+    text-align: left !important;
+}
