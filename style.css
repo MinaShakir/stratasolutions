@@ -1348,3 +1348,116 @@ header.main-header, .main-nav .container {
 .footer-column a, .footer-column li, .footer-abn, .footer-tagline {
     color: #333333 !important; /* Dark gray text for readability */
 }
+/* ============================================================
+   FINAL WEBSITE FIXES - MARCH 10, 2026
+   ============================================================ */
+
+/* 1. HEADER: Logo Left, Navigation Right, All in One Line */
+header.site-header, 
+header.main-header, 
+.main-nav .container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    padding: 10px 40px !important;
+    max-width: 100% !important;
+}
+
+/* Bigger Logo & Tight Text Alignment */
+.logo img, .site-logo {
+    height: 70px !important; /* Made it a bit bigger for you */
+    width: auto !important;
+    margin-right: 15px !important;
+}
+
+.logo, .brand-container {
+    display: flex !important;
+    flex-direction: row !important; /* Keeps logo and text side-by-side */
+    align-items: center !important;
+}
+
+.logo-text, .brand-text {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.logo h1, .brand-text h1 {
+    white-space: nowrap !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    font-size: 22px !important;
+}
+
+.logo h2, .brand-text p, .footer-tagline {
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+}
+
+/* Navigation to the Right */
+.nav-links, .nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    gap: 25px !important;
+    margin: 0 !important;
+    list-style: none !important;
+}
+
+.nav-links li a, .nav-menu a {
+    white-space: nowrap !important;
+}
+
+/* 2. TESTIMONIALS: Forces 3 Equal Columns */
+.testimonial-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 30px !important;
+    align-items: stretch !important;
+}
+
+/* 3. CONTACT SECTION: Details and Form Side-by-Side */
+.contact-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1.2fr !important;
+    gap: 50px !important;
+    align-items: flex-start !important;
+}
+
+/* 4. FOOTER: White Background & Black Text */
+.site-footer, footer.main-footer, footer {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    border-top: 1px solid #dddddd !important;
+    padding: 60px 0 30px !important;
+}
+
+/* Footer Titles to Black */
+.footer-column h3, 
+.footer-column h4, 
+.footer-title, 
+.footer-company-name,
+.footer-column h3 {
+    color: #000000 !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+}
+
+/* Footer Links and Text to Dark Gray */
+.footer-column a, 
+.footer-column li, 
+.footer-abn, 
+.footer-tagline,
+.footer-column p {
+    color: #333333 !important;
+}
+
+/* Remove the excess white color/gap on top of sections */
+section, .primary-services {
+    margin-top: 0 !important;
+    padding-top: 40px !important;
+}
