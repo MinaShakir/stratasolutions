@@ -1293,3 +1293,58 @@ footer .footer-logo, footer img {
     color: #333 !important;
     padding: 30px 0;
 }
+/* --- HEADER: Logo Left, Nav Right, Single Line --- */
+header.main-header, .main-nav .container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    padding: 10px 40px !important;
+}
+
+.site-logo, .logo img {
+    height: 65px !important; /* Slightly bigger logo */
+    width: auto !important;
+}
+
+.brand-text h1, .logo h1 {
+    white-space: nowrap !important; /* Forces one line */
+    margin: 0 !important;
+}
+
+.nav-menu, .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    gap: 30px !important;
+    list-style: none !important;
+}
+
+/* --- TESTIMONIALS: 3 Columns Side-by-Side --- */
+.testimonial-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 25px !important;
+}
+
+/* --- CONTACT: Form & Details Side-by-Side --- */
+.contact-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 40px !important;
+}
+
+/* --- FOOTER: White Background & Black Text --- */
+.site-footer, footer.main-footer {
+    background-color: #ffffff !important;
+    border-top: 1px solid #ddd !important;
+}
+
+.footer-title, .footer-company-name, .footer-column h3, .footer-column h4 {
+    color: #000000 !important; /* Black titles */
+}
+
+.footer-column a, .footer-column li, .footer-abn, .footer-tagline {
+    color: #333333 !important; /* Dark gray text for readability */
+}
