@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Service Details</title>
+  <link rel="stylesheet" href="style.css"> <!-- Update path if your CSS is in a folder -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+    }
+
+    footer a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Services</h1>
+  </header>
+
+  <section class="services-grid">
+    <div class="service-card">
+      <img src="images/home-repair.jpg" alt="Repairs">
+      <h3>Repairs</h3>
+      <p>From minor fixes to major structural repairs, we handle all types of building damage efficiently.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="images/home-renovations.jpg" alt="Renovations">
+      <h3>Renovations</h3>
+      <p>Transform your space with our expert renovation services, tailored to your vision and needs.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="images/home-maintenance.jpg" alt="Maintenance">
+      <h3>Maintenance</h3>
+      <p>Proactive and reactive maintenance services to keep your property in top condition year-round.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="images/home-painting.jpg" alt="Painting">
+      <h3>Painting</h3>
+      <p>Professional interior and exterior painting services for a fresh, durable finish.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="images/home-installation.jpg" alt="Installations">
+      <h3>Installations</h3>
+      <p>Expert installation of fixtures, fittings, and new structures with precision and quality.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="images/ndis-home.jpg" alt="NDIS Home Modifications">
+      <h3>NDIS Home Modifications</h3>
+      <p>Registered NDIS provider for accessible home modifications, ensuring safety and independence.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="images/and-more.jpg" alt="And More">
+      <h3>And More</h3>
+      <p>Contact us for any other building needs — if it involves building, we can help!</p>
+    </div>
+  </section>
+
+  <footer>
+    <a href="index.html">← Back to Home</a>
+  </footer>
+</body>
+</html>
