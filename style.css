@@ -1357,3 +1357,83 @@ footer .footer-logo, footer img {
         margin-bottom: 20px !important;
     }
 }
+/* =========================================
+   HEADER: BRANDING LEFT / NAVIGATION RIGHT
+   ========================================= */
+
+/* 1. The Main Header Container */
+header .container, 
+.nav-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important; /* Pushes brand left, nav right */
+    align-items: center !important;
+    padding: 15px 20px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+/* 2. Grouping Logo + Title + Subtitle on the Left */
+.brand-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 15px !important;
+    text-align: left !important;
+}
+
+.brand-text {
+    display: flex !important;
+    flex-direction: column !important; /* Title over Subtitle */
+    justify-content: center !important;
+}
+
+.brand-text h1, 
+.site-title {
+    margin: 0 !important;
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+}
+
+.brand-text p, 
+.site-subtitle {
+    margin: 0 !important;
+    font-size: 14px !important;
+    color: #555 !important;
+}
+
+/* 3. Navigation on the Right */
+.nav-menu, 
+.nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 20px !important;
+}
+
+.nav-links li a {
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important; /* Keeps "Our Services" on one line */
+}
+
+/* 4. Mobile: Center everything when screen is small */
+@media (max-width: 992px) {
+    header .container, 
+    .nav-container {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .brand-container {
+        flex-direction: column !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+}
