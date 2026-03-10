@@ -911,3 +911,95 @@ main, .hero-section {
     resize: vertical; /* Allows users to resize vertically but not horizontally */
 
 }
+/* --- 1. LOGO & HEADER TEXT ALIGNMENT --- */
+.site-logo img {
+    max-height: 70px !important; /* Adjust height as needed */
+    width: auto;
+    margin-bottom: 2px !important;
+}
+
+/* Tightens the gap between Company Title and Subtitle */
+.site-title, .logo-text-title {
+    font-size: 22px; 
+    font-weight: bold;
+    margin-bottom: 0 !important;
+    line-height: 1.1 !important;
+    display: block;
+}
+
+.site-description, .logo-text-subtitle {
+    font-size: 13px;
+    margin-top: -3px !important; /* Pulls subtitle up towards title */
+    padding-top: 0 !important;
+    line-height: 1.2 !important;
+    display: block;
+    color: #666;
+}
+
+/* --- 2. TOP BAR & NAVIGATION --- */
+header, .site-header {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    background-color: #fff;
+}
+
+.nav-menu ul, .main-navigation ul {
+    display: flex;
+    white-space: nowrap; /* Keeps menu items in a single line */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+/* --- 3. TESTIMONIALS COLUMN FIX --- */
+.testimonials-grid, .testimonial-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.testimonial-box, .testimonial-item {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 4. CONTACT SECTION (SIDE-BY-SIDE) --- */
+.contact-wrapper, .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.contact-details-column, 
+.contact-form-column {
+    flex: 1;
+    min-width: 320px; /* Stacks on mobile for better UX */
+}
+
+/* --- 5. FOOTER STYLING --- */
+footer, .site-footer {
+    background-color: #f8f8f8 !important; /* Light gray; change to #ffffff for pure white */
+    color: #333 !important;
+    padding: 40px 20px !important;
+    border-top: 1px solid #ddd; /* Adds a clean separation line */
+}
+
+footer a {
+    color: #333 !important;
+}
+
+/* --- 6. REMOVING EXCESS WHITE SPACE --- */
+.entry-header, .page-header {
+    display: none; /* Removes redundant page titles if they create gaps */
+}
+
+#main-content, .site-main {
+    padding-top: 10px !important;
+}
