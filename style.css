@@ -987,3 +987,295 @@ body, .primary-services {
     margin-top: 0;
     padding-top: 20px;
 }
+/* Force the navigation list to stay in one row */
+.nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Forces items to stay side-by-side */
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+}
+
+/* Prevent the text inside the links from breaking into two lines */
+.nav-links li a {
+    white-space: nowrap !important; 
+    display: inline-block !important;
+}
+/* HEADER: Stays at the top and moves away when scrolling */
+header.main-header {
+    position: relative !important; /* Changed from absolute to ensure it stays in document flow */
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #ffffff !important;
+    padding: 15px 40px !important;
+    box-sizing: border-box !important;
+    z-index: 100 !important;
+}
+
+/* LEFT SIDE: Logo and Company Name */
+.brand-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important; 
+}
+
+.site-logo {
+    height: 45px !important; 
+    width: auto !important;
+}
+
+.brand-text h1 {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    color: #000000 !important; /* Ensure black for visibility */
+}
+
+/* CENTER: Navigation Links (Fixing visibility) */
+.nav-menu {
+    display: flex !important;
+    justify-content: center !important;
+    flex: 2 !important; 
+    list-style: none !important;
+    gap: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.nav-menu a {
+    text-decoration: none !important;
+    color: #333333 !important; /* Ensure color is defined */
+    font-weight: 600 !important;
+    visibility: visible !important; /* Force visibility */
+}
+
+/* Spacer for perfect centering */
+.header-right-spacer { flex: 1 !important; }
+
+/* FOOTER LAYOUT: Logo, Name, then Columns below */
+footer.main-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 50px 20px !important;
+    background-color: #222222 !important; /* Dark background */
+    text-align: center !important;
+}
+
+/* FOOTER LOGO: Forced small size */
+footer .footer-logo, footer img {
+    height: 45px !important;
+    width: auto !important;
+    margin-bottom: 10px !important;
+}
+
+/* FOOTER COMPANY NAME: Visible White Text */
+.footer-company-name {
+    color: #ffffff !important; 
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+}
+
+/* FOOTER SUBTITLE: Visible Blue Text */
+.footer-subtitle {
+    color: #5dade2 !important; /* Lighter blue for visibility on dark bg */
+    font-size: 14px !important;
+    margin: 5px 0 30px 0 !important;
+}
+
+/* COLUMNS: Below the branding */
+.footer-columns-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 60px !important;
+    width: 100% !important;
+    border-top: 1px solid #444 !important;
+    padding-top: 30px !important;
+}
+
+.footer-columns-wrapper h4 {
+    color: #ff4500 !important; /* Orange headers */
+    font-weight: bold !important;
+}
+/* =========================================
+   REVISED 3-COLUMN FOOTER 
+   Matches your HTML: .site-footer & .footer-grid
+   ========================================= */
+
+.site-footer {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: 60px 0 40px !important;
+}
+
+/* This creates the 3-column side-by-side layout */
+.footer-grid {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+
+/* Column 1: Branding */
+.footer-branding {
+    flex: 1.5 !important; /* Makes the branding area slightly wider */
+}
+
+.logo-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.footer-logo {
+    height: 50px !important;
+    width: auto !important;
+}
+
+.footer-title {
+    color: #ffffff !important;
+    font-size: 1.4rem !important;
+    margin: 0 !important;
+}
+
+.footer-tagline {
+    color: #5dade2 !important; /* Light blue for visibility */
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+.footer-abn {
+    color: #bbbbbb !important;
+    font-size: 0.85rem !important;
+    margin-top: 10px !important;
+}
+
+/* Columns 2 & 3: Services & Company */
+.footer-column {
+    flex: 1 !important;
+}
+
+.footer-column h3 {
+    color: var(--color-primary) !important; /* Your #E94E1B Orange */
+    font-size: 1.2rem !important;
+    margin-bottom: 20px !important;
+    text-transform: uppercase !important;
+}
+
+.footer-column ul {
+    list-style: none !important;
+    padding: 0 !important;
+}
+
+.footer-column li {
+    margin-bottom: 10px !important;
+}
+
+.footer-column a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transition: color 0.3s !important;
+}
+
+.footer-column a:hover {
+    color: var(--color-primary) !important;
+}
+
+/* Mobile Responsive: Stacks columns on small screens */
+@media (max-width: 768px) {
+    .footer-grid {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .logo-group {
+        justify-content: center !important;
+    }
+}
+/* MOBILE CENTER ALIGNMENT */
+@media screen and (max-width: 768px) {
+    .site-footer {
+        padding: 40px 0; /* Adjust padding for mobile */
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* This centers the links and headings */
+    }
+
+    .footer-column h4 {
+        margin-bottom: 15px;
+    }
+}
+@media screen and (max-width: 768px) {
+    /* Reduce header padding to save space */
+    .site-header {
+        padding: 10px 0;
+    }
+
+    /* Compress the logo size so the menu can fit next to it or right below */
+    .logo img {
+        max-height: 40px; 
+    }
+
+    /* Make the navigation links horizontal and small */
+    .nav-menu {
+        display: flex;
+        flex-direction: row; /* Keep items in a row */
+        justify-content: center;
+        flex-wrap: wrap;    /* Wrap to a second line if there are too many */
+        gap: 10px;          /* Space between Home, About Us, etc. */
+        padding: 5px 0;
+    }
+
+    .nav-menu a {
+        font-size: 13px;    /* Smaller text for mobile */
+        padding: 5px 8px;
+    }
+}
+/* Temporarily hide the error message area */
+.error-message, .gm-err-container {
+    display: none !important;
+}
+@media screen and (max-width: 768px) {
+    /* 1. This stops the header from blocking the page */
+    .site-header {
+        position: relative !important;
+        padding: 10px 0 !important;
+    }
+
+    /* 2. This compresses the menu into a horizontal row */
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important; /* Forces Home, About, etc. to be side-by-side */
+        flex-wrap: wrap !important;     /* Allows a second row if it's too tight */
+        justify-content: center !important;
+        gap: 8px !important;            /* Tightens space between links */
+        padding: 5px 0 !important;
+    }
+
+    /* 3. Make the text smaller so it fits */
+    .nav-links a {
+        font-size: 12px !important;
+        padding: 4px 6px !important;
+    }
+}
