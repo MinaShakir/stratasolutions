@@ -1437,3 +1437,97 @@ header .container,
         justify-content: center !important;
     }
 }
+/* 1. LOGO & BRANDING: Fixing the "Wrapper Cage" */
+.logo-image-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    height: 120px !important; /* Set this to your desired logo height */
+    width: auto !important;
+}
+
+.logo-image-wrapper img, .site-logo {
+    height: 100% !important; /* Forces image to fill the wrapper height */
+    width: auto !important;
+    max-height: 120px !important;
+    display: block !important;
+}
+
+.brand-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 20px !important;
+}
+
+/* 2. TOP BAR: Compressing the Black Background */
+.header-top, .top-bar {
+    background-color: #000 !important;
+    padding: 4px 0 !important; /* Reduces vertical thickness */
+    min-height: 30px !important;
+}
+
+.header-top .container {
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 25px !important;
+    white-space: nowrap !important; /* Forces words onto 1 row */
+}
+
+/* 3. TESTIMONIALS: Compressing into Row Rectangles */
+.testimonial-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 15px !important;
+    max-width: 950px !important; /* Compresses the width of the section */
+    margin: 0 auto !important;
+}
+
+.testimonial-item {
+    flex: 1 !important;
+    max-width: 300px !important; /* Forces the "Little Rectangle" look */
+    padding: 20px !important;
+    height: 320px !important; /* Reduces the vertical length */
+    background: #fff !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+}
+
+/* 4. CONTACT FORM: Reducing Width and Length */
+.contact-grid {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+}
+
+.contact-form-col {
+    flex: 0 1 400px !important; /* Compresses the width */
+}
+
+.contact-form-col textarea {
+    height: 110px !important; /* Strictly reduces the vertical length */
+}
+
+/* 5. FOOTER: White Background & Black Text Alignment */
+footer, .site-footer {
+    background-color: #ffffff !important;
+    border-top: 1px solid #eee !important;
+    padding: 30px 0 !important;
+}
+
+.footer-grid {
+    display: flex !important;
+    justify-content: space-between !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+}
+
+.footer-column, .footer-column h3, .footer-column p, .footer-column a, .footer-column li {
+    color: #000000 !important; /* Makes all words black */
+    text-align: left !important;
+    list-style: none !important;
+    text-decoration: none !important;
+}
