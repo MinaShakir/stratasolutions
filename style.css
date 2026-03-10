@@ -1,1205 +1,255 @@
-/*
- * GENERAL STYLING
- * Matches the requested font ('Inter') and sets up common elements.
- */
+/* 1. BRAND VARIABLES & FONTS */
 :root {
-    /* Mapped from user's new palette */
-    --color-primary: #E94E1B;     /* Primary Red-Orange (Main accent, logo, buttons, headers) */
-    --color-secondary: #E94E1B;   /* Used for accent lines, link hovers (Matching Primary) */
-    --color-primary-darker: #Eb493a; /* Darker Red-Orange for hover states */
-    --color-text-main: #000000;   /* True Black (Main text, strong contrast) */
-    --color-text: #333333;        /* Dark Gray (Secondary text, body text) */
-    --color-light: #F4F4F4;       /* Light Gray (Backgrounds, borders) */
-    --color-white: #FFFFFF;       /* White (Background or text contrast) */
-
-    --font-primary: 'Inter', sans-serif;
+    --color-primary: #E94E1B;        /* Primary Red-Orange */
+    --color-primary-darker: #Eb493a;
+    --color-text-main: #000000;      /* True Black */
+    --color-text: #333333;           /* Dark Gray body text */
+    --color-light: #F4F4F4;          /* Backgrounds & Borders */
+    --color-white: #FFFFFF;
+    --font-primary: 'Inter', sans-serif;
 }
 
+/* 2. CORE RESETS */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: var(--font-primary);
-    line-height: 1.6;
-    color: var(--color-text); /* Using Dark Gray for softer body text */
-    background-color: var(--color-white);
-    scroll-behavior: smooth;
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    overflow-x: hidden; /* Critical for mobile stability */
+    scroll-behavior: smooth;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 section {
-    padding: 80px 0;
-    overflow-x: hidden;
+    padding: 80px 0;
 }
 
-h1, h2, h3, h4 {
-    color: var(--color-text-main); /* Using True Black for headers */
-    font-weight: 700;
-    line-height: 1.2;
+h1, h2, h3 {
+    color: var(--color-text-main);
+    line-height: 1.2;
 }
 
-h2.section-title {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    position: relative;
-}
-
-h2.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--color-secondary); /* Primary Red-Orange accent line */
-    margin: 10px auto 30px;
-    border-radius: 2px;
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.1em;
-    color: var(--color-text);
-    margin-bottom: 40px;
-}
-
-/* BUTTON STYLES */
-.btn-primary, .btn-secondary {
-    display: inline-block;
-    padding: 10px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.2s;
-    text-transform: uppercase;
-    font-size: 0.9em;
-}
-
-.btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: 2px solid var(--color-primary);
-}
-
-.btn-primary:hover {
-    background-color: var(--color-primary-darker); /* Darker Red-Orange */
-    border-color: var(--color-primary-darker);
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-}
-
-.btn-secondary:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-}
-
-/*
- * HEADER & NAVIGATION
- */
-.site-header {
-    position: relative;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-/* Increase this value to match your actual header height */
-main, .hero-section { 
-    margin-top: 80px; /* Try 80px or 100px if 20px isn't enough */
-}
-/* Top Bar (Contact Info) */
-.top-bar {
-    background-color: var(--color-text-main); /* Black for strong top bar contrast */
-    color: var(--color-light);
-    font-size: 0.8em;
-    padding: 8px 0;
-}
-
-.top-contact {
-    display: flex;
-    justify-content: flex-end;
-    gap: 25px;
-}
-
-.top-contact i {
-    margin-right: 5px;
-}
-
-.top-contact span:first-child {
-    margin-right: auto;
-    font-weight: 600;
-    color: var(--color-primary); /* Primary Red-Orange for emergency highlight */
-}
-
-/* Main Navigation */
-.main-nav {
-    background-color: var(--color-white);
+/* 3. HEADER & NAVIGATION */
+header.site-header {
+    background: var(--color-white);
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky; /* Keeps menu at top while scrolling */
+    top: 0;
+    z-index: 1000;
 }
 
 .main-nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--color-text);
-}
-
-.logo img {
-    height: 50px;
-    margin-right: 15px;
-}
-
-.logo h1 {
-    font-size: 1.5em;
-    margin: 0;
-    color: var(--color-text-main); /* Black */
-}
-
-.logo h2 {
-    font-size: 0.8em;
-    font-weight: 400;
-    color: var(--color-text); /* Dark Gray */
-    margin: 0;
-    text-transform: uppercase;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--color-text);
-    font-weight: 600;
-    padding: 5px 0;
-    position: relative;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--color-secondary); /* Primary Red-Orange */
-}
-
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-secondary); /* Primary Red-Orange */
-}
-
-.hamburger-menu {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: var(--color-primary);
-}
-
-/*
- * HERO SECTION
- */
-.hero-section {
-    background-image: url('images/homerenovation.jpg') !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: cover !important;
-    width: 100% !important;
-    min-height: 60vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative;
-    z-index: 1;
-}
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-}
-
-.hero-content h1 {
-    font-size: 3.5em;
-    margin-bottom: 10px;
-    color: var(--color-white);
-}
-
-.hero-subtitle {
-    font-size: 1.5em;
-    font-weight: 300;
-    margin-bottom: 20px;
-    color: var(--color-light);
-    letter-spacing: 2px;
-}
-
-.hero-description {
-    font-size: 1.1em;
-    margin-bottom: 30px;
-    font-weight: 300;
-}
-
-/*
- * PRIMARY SERVICES (Clickable Links)
- */
-.primary-services {
-    background-color: var(--color-light);
-    padding: 50px 0;
-}
-
-.service-links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    align-items: stretch; /* This forces all cards in a row to match the tallest one */
-}
-
-.service-card {
-    display: flex;          /* Changed from block */
-    flex-direction: column; /* Stacks content top-to-bottom */
-    background-color: var(--color-white);
-    padding: 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--color-text);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center;
-    height: 100%;           /* Fill the grid height */
-}
-
-.service-card p {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    flex-grow: 1;           /* THIS IS THE TRICK: It grows to fill extra space, pushing the link down */
-}
-
-.service-card i {
-    font-size: 3em;
-    color: var(--color-secondary); /* Primary Red-Orange */
-    margin-bottom: 15px;
-}
-
-.service-card h3 {
-    margin-bottom: 10px;
-    color: var(--color-primary);
-    font-size: 1.4em;
-}
-
-.service-card p {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    flex-grow: 1; /* Add this line to push the link down */
-    display: flex;
-    align-items: center; /* This centers the text vertically in the extra space */0
-}
-
-.cta-link {
-    display: block;
-    color: var(--color-secondary); /* Primary Red-Orange */
-    font-weight: 600;
-}
-
-/*
- * SERVICES OVERVIEW
- */
-.services-overview {
-    background-color: var(--color-white);
-}
-
-.service-list-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.services-overview h3 {
-    font-size: 1.3em;
-    margin-bottom: 10px;
-    border-left: 4px solid var(--color-secondary); /* Primary Red-Orange border */
-    padding-left: 10px;
-}
-
-.services-overview div {
-    padding: 20px;
-    border-radius: 5px;
-    background-color: var(--color-light);
-}
-
-/*
- * SERVICE AREAS
- */
-.service-areas-section {
-    background-color: var(--color-white);
-}
-
-.area-list {
-    columns: 4;
-    -webkit-columns: 4;
-    -moz-columns: 4;
-    list-style-type: none;
-    padding: 0;
-    font-size: 1em;
-    margin: 0 auto;
-    max-width: 900px;
-    padding-top: 20px;
-}
-
-.area-list li {
-    padding: 5px 0;
-    color: var(--color-text);
-}
-
-
-/*
- * ABOUT US
- */
-.about-section {
-    background-color: var(--color-light);
-}
-
-.about-section p {
-    margin-bottom: 15px;
-    text-align: justify;
-}
-
-/*
- * NDIS SECTION
- */
-.ndis-section {
-    background-color: var(--color-light); /* Changed light blue to Light Gray */
-    text-align: center;
-}
-
-.ndis-content-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.ndis-logo {
-    height: 80px;
-    margin-bottom: 20px;
-}
-
-.ndis-content-wrapper h2 {
-    color: var(--color-primary); /* Changed to Primary Red-Orange */
-}
-
-.ndis-content-wrapper p {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-}
-
-/*
- * PORTFOLIO
- */
-.portfolio {
-    background-color: var(--color-white);
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 50px;
-}
-
-.portfolio-item {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.portfolio-item h3 {
-    margin-bottom: 15px;
-    color: var(--color-secondary); /* Primary Red-Orange */
-    font-size: 1.6em;
-}
-
-.image-pair-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.image-pair-gallery img {
-    width: 100%;
-    max-width: 45%;
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-}
-
-.contact-cta-text {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 1.2em;
-}
-
-.contact-cta-link {
-    color: var(--color-secondary); /* Primary Red-Orange */
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.contact-cta-link:hover {
-    text-decoration: underline;
-}
-
-/*
- * TESTIMONIALS
- */
-.testimonials {
-    background-color: var(--color-light);
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.testimonial-item {
-    background-color: var(--color-white);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid var(--color-secondary); /* Primary Red-Orange accent */
-}
-
-.testimonial-item .quote {
-    font-style: italic;
-    margin-bottom: 15px;
-    color: var(--color-text);
-    font-size: 0.95em;
-}
-
-.testimonial-author {
-    font-weight: 700;
-    text-align: right;
-    color: var(--color-primary);
-}
-
-/*
- * CONTACT SECTION (FORM)
- */
-.contact-section {
-    background-color: var(--color-white);
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 50px;
-    align-items: flex-start;
-}
-
-.contact-info-col h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.contact-details {
-    margin-top: 30px;
-}
-
-.contact-details p {
-    margin-bottom: 15px;
-    font-size: 1.1em;
-}
-
-.contact-details a {
-    color: var(--color-secondary); /* Primary Red-Orange */
-    text-decoration: none;
-}
-
-.emergency-contact {
-    font-weight: 600;
-    color: var(--color-primary); /* Primary Red-Orange for emergency highlight */
-}
-
-/* Form Styles */
-.contact-form-col h3 {
-    color: var(--color-primary);
-    margin-bottom: 20px;
-    font-size: 1.8em;
-}
-
-.contact-form {
-    background-color: var(--color-light);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--color-text);
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-    font-family: var(--font-primary);
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--color-secondary); /* Primary Red-Orange focus border */
-    outline: none;
-}
-
-/*
- * FOOTER
- */
-.site-footer {
-    background-color: var(--color-text-main); /* Black footer for strong contrast */
-    color: var(--color-light);
-    padding: 50px 0 20px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 30px;
-    margin-bottom: 20px;
-}
-
-.footer-column h4 {
-    color: var(--color-white);
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-
-.footer-column a {
-    color: var(--color-light);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-column a:hover {
-    color: var(--color-secondary); /* Primary Red-Orange */
-}
-
-.logo-footer {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.logo-footer img {
-    height: 40px;
-}
-
-.logo-footer h3, .logo-footer h4 {
-    color: var(--color-white);
-    margin: 0;
-    line-height: 1.2;
-}
-
-.logo-footer h3 {
-    font-size: 1.2em;
-}
-
-.logo-footer h4 {
-    font-size: 0.7em;
-    font-weight: 300;
-}
-
-.footer-column ul {
-    list-style: none;
-}
-
-.footer-column ul li {
-    margin-bottom: 8px;
-}
-
-.contact-info-footer i {
-    margin-right: 10px;
-}
-
-.social-links {
-    margin-top: 20px;
-    display: flex;
-    gap: 15px;
-}
-
-.social-links a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 35px;
-    height: 35px;
-    border: 1px solid var(--color-light);
-    border-radius: 50%;
-    font-size: 1.1em;
-    color: var(--color-light);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.social-links a:hover {
-    background-color: var(--color-secondary); /* Primary Red-Orange */
-    border-color: var(--color-secondary);
-    color: var(--color-white);
-}
-
-.footer-bottom {
-    text-align: center;
-    font-size: 0.85em;
-    padding-top: 10px;
-}
-
-.ndis-provider-footer {
-    margin-top: 5px;
-    color: #aaa;
-}
-
-/*
- * COOKIE CONSENT BANNER
- */
-.cookie-consent {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: var(--color-white);
-    padding: 15px 20px;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9em;
-    z-index: 10000;
-}
-
-.cookie-consent a {
-    color: var(--color-secondary); /* Primary Red-Orange */
-    text-decoration: none;
-}
-
-.cookie-accept-btn {
-    background-color: var(--color-secondary); /* Primary Red-Orange */
-    color: var(--color-white);
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.cookie-accept-btn:hover {
-    background-color: var(--color-primary-darker); /* Darker Red-Orange */
-}
-
-/*
- * SCROLL EFFECT ANIMATION CLASSES
- */
-.fade-in-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/*
- * RESPONSIVE DESIGN (Media Queries)
- */
-
-/* Tablets and smaller desktops */
-@media (max-width: 1024px) {
-    .area-list {
-        columns: 3;
-        -webkit-columns: 3;
-        -moz-columns: 3;
-    }
-}
-
-/* Mobile devices */
-@media (max-width: 768px) {
-    .top-bar {
-        padding: 5px 0;
-    }
-    
-    .top-contact {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-    .top-contact span:first-child {
-        margin-right: 0;
-        text-align: center;
-        width: 100%;
-    }
-
-    .main-nav .container {
-        flex-wrap: wrap;
-    }
-
-    .logo {
-        margin-bottom: 10px;
-    }
-
-    .logo h1 {
-        font-size: 1.2em;
-    }
-
-    .logo h2 {
-        font-size: 0.7em;
-    }
-
-    .hamburger-menu {
-        display: block;
-        order: 2;
-        margin-left: auto;
-    }
-
-    .nav-links {
-        flex-direction: row;
-        width: 100%;
-        display: none;
-        order: 3;
-        padding-top: 15px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        text-align: center;
-        padding: 10px 0;
-        border-top: 1px solid #eee;
-    }
-    
-    .nav-links a {
-        padding: 10px 0;
-        display: block;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5em;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2em;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .area-list {
-        columns: 2;
-        -webkit-columns: 2;
-        -moz-columns: 2;
-    }
-
-    .image-pair-gallery img {
-        max-width: 100%;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .cookie-consent {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-        text-align: left;
-    }
-}
-/* NEW RULE: Center the "New Service" message */
-.center-text-message {
-    text-align: center;
-    width: 100%; 
-    margin: 60px 0; 
-    font-size: 1.2em;
-    color: var(--color-primary); 
-    font-weight: 700;
-}
-.hero-section {
-  position: relative;
-  height: 100vh; /* full screen height */
-  background-image: url("images/hero-bg.jpg"); /* path to your image */
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* dark overlay */
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-/* Add this to your style.css file */
-.footer-form input, 
-.footer-form textarea,
-.footer-form button {
-    width: 100%; /* Makes inputs fill the column width */
-    margin-bottom: 8px; /* Adds space between fields */
-    padding: 8px;
-    box-sizing: border-box; /* Ensures padding doesn't widen the elements */
-}
-.footer-form textarea {
-    resize: vertical; /* Allows users to resize vertically but not horizontally */
-
-}
-/* Force the navigation list to stay in one row */
-.nav-links {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important; /* Forces items to stay side-by-side */
-    justify-content: flex-end !important;
-    align-items: center !important;
-    gap: 1.5rem !important;
-}
-
-/* Prevent the text inside the links from breaking into two lines */
-.nav-links li a {
-    white-space: nowrap !important; 
-    display: inline-block !important;
-}
-/* HEADER: Stays at the top and moves away when scrolling */
-header.main-header {
-    position: relative !important; /* Changed from absolute to ensure it stays in document flow */
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    background: #ffffff !important;
-    padding: 15px 40px !important;
-    box-sizing: border-box !important;
-    z-index: 100 !important;
-}
-
-/* LEFT SIDE: Logo and Company Name */
 .brand-container {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    flex: 1 !important; 
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .site-logo {
-    height: 45px !important; 
-    width: auto !important;
+    height: 50px;
+    width: auto;
 }
 
-.brand-text h1 {
-    font-size: 18px !important;
-    font-weight: 800 !important;
-    margin: 0 !important;
-    color: #000000 !important; /* Ensure black for visibility */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
 }
 
-/* CENTER: Navigation Links (Fixing visibility) */
-.nav-menu {
-    display: flex !important;
-    justify-content: center !important;
-    flex: 2 !important; 
-    list-style: none !important;
-    gap: 20px !important;
-    margin: 0 !important;
-    padding: 0 !important;
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: color 0.3s;
 }
 
-.nav-menu a {
-    text-decoration: none !important;
-    color: #333333 !important; /* Ensure color is defined */
-    font-weight: 600 !important;
-    visibility: visible !important; /* Force visibility */
+.nav-links a:hover, .nav-links a.active {
+    color: var(--color-primary);
 }
 
-/* Spacer for perfect centering */
-.header-right-spacer { flex: 1 !important; }
-
-/* FOOTER LAYOUT: Logo, Name, then Columns below */
-footer.main-footer {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    padding: 50px 20px !important;
-    background-color: #222222 !important; /* Dark background */
-    text-align: center !important;
+/* 4. SERVICES SECTION (Column Layout) */
+.service-column-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
 }
 
-/* FOOTER LOGO: Forced small size */
-footer .footer-logo, footer img {
-    height: 45px !important;
-    width: auto !important;
-    margin-bottom: 10px !important;
+.service-card-wide {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: var(--color-white);
+    border: 1px solid #ddd;
+    padding: 40px;
+    width: 100%;
+    max-width: 900px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-/* FOOTER COMPANY NAME: Visible White Text */
-.footer-company-name {
-    color: #ffffff !important; 
-    font-size: 20px !important;
-    font-weight: 800 !important;
-    margin: 0 !important;
+.service-card-wide:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 5px 20px rgba(233, 78, 27, 0.1);
 }
 
-/* FOOTER SUBTITLE: Visible Blue Text */
-.footer-subtitle {
-    color: #5dade2 !important; /* Lighter blue for visibility on dark bg */
-    font-size: 14px !important;
-    margin: 5px 0 30px 0 !important;
+.service-card-wide i {
+    font-size: 3rem;
+    color: var(--color-primary);
 }
 
-/* COLUMNS: Below the branding */
-.footer-columns-wrapper {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 60px !important;
-    width: 100% !important;
-    border-top: 1px solid #444 !important;
-    padding-top: 30px !important;
+/* 5. ABOUT SECTION (Centered) */
+.about-section {
+    background-color: var(--color-light);
+    text-align: center;
 }
 
-.footer-columns-wrapper h4 {
-    color: #ff4500 !important; /* Orange headers */
-    font-weight: bold !important;
+.about-content {
+    max-width: 800px;
+    margin: 20px auto 0;
 }
-/* =========================================
-   REVISED 3-COLUMN FOOTER 
-   Matches your HTML: .site-footer & .footer-grid
-   ========================================= */
 
+/* 6. TESTIMONIALS (3-Column Grid) */
+.testimonial-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonial-item {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--color-primary);
+    text-align: center;
+}
+
+/* 7. CONTACT SECTION (Column Layout) */
+.contact-column-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.contact-form-wrapper {
+    width: 100%;
+    max-width: 650px;
+    background: var(--color-light);
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-darker);
+}
+
+/* 8. FOOTER (3-Column Layout) */
 .site-footer {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    padding: 60px 0 40px !important;
+    background-color: var(--color-text-main);
+    color: var(--color-white);
+    padding: 60px 0 30px;
 }
 
-/* This creates the 3-column side-by-side layout */
 .footer-grid {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    gap: 40px !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 0 20px !important;
-}
-
-/* Column 1: Branding */
-.footer-branding {
-    flex: 1.5 !important; /* Makes the branding area slightly wider */
-}
-
-.logo-group {
-    display: flex !important;
-    align-items: center !important;
-    gap: 15px !important;
-    margin-bottom: 15px !important;
-}
-
-.footer-logo {
-    height: 50px !important;
-    width: auto !important;
-}
-
-.footer-title {
-    color: #ffffff !important;
-    font-size: 1.4rem !important;
-    margin: 0 !important;
-}
-
-.footer-tagline {
-    color: #5dade2 !important; /* Light blue for visibility */
-    font-size: 0.9rem !important;
-    margin: 0 !important;
-}
-
-.footer-abn {
-    color: #bbbbbb !important;
-    font-size: 0.85rem !important;
-    margin-top: 10px !important;
-}
-
-/* Columns 2 & 3: Services & Company */
-.footer-column {
-    flex: 1 !important;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .footer-column h3 {
-    color: var(--color-primary) !important; /* Your #E94E1B Orange */
-    font-size: 1.2rem !important;
-    margin-bottom: 20px !important;
-    text-transform: uppercase !important;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
 }
 
 .footer-column ul {
-    list-style: none !important;
-    padding: 0 !important;
+    list-style: none;
 }
 
-.footer-column li {
-    margin-bottom: 10px !important;
-}
+.footer-column li { margin-bottom: 10px; }
 
 .footer-column a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    transition: color 0.3s !important;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
 }
 
-.footer-column a:hover {
-    color: var(--color-primary) !important;
-}
-
-/* Mobile Responsive: Stacks columns on small screens */
-@media (max-width: 768px) {
-    .footer-grid {
-        flex-direction: column !important;
-        text-align: center !important;
-    }
-    
-    .logo-group {
-        justify-content: center !important;
-    }
-}
-/* MOBILE CENTER ALIGNMENT */
+/* 9. MOBILE RESPONSIVE LOGIC */
 @media screen and (max-width: 768px) {
-    .site-footer {
-        padding: 40px 0; /* Adjust padding for mobile */
-    }
+    /* Nav shrinks and centers */
+    .main-nav .container {
+        flex-direction: column;
+        gap: 15px;
+    }
 
-    .footer-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 
-    .footer-column {
-        width: 100%;
-        margin-bottom: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* This centers the links and headings */
-    }
+    .nav-links a { font-size: 12px; }
 
-    .footer-column h4 {
-        margin-bottom: 15px;
-    }
-}
-@media screen and (max-width: 768px) {
-    /* Reduce header padding to save space */
-    .site-header {
-        padding: 10px 0;
-    }
+    /* Services stack vertically */
+    .service-card-wide {
+        flex-direction: column;
+        text-align: center;
+    }
 
-    /* Compress the logo size so the menu can fit next to it or right below */
-    .logo img {
-        max-height: 40px; 
-    }
+    /* Testimonials stack into 1 column */
+    .testimonial-grid-3 {
+        grid-template-columns: 1fr;
+    }
 
-    /* Make the navigation links horizontal and small */
-    .nav-menu {
-        display: flex;
-        flex-direction: row; /* Keep items in a row */
-        justify-content: center;
-        flex-wrap: wrap;    /* Wrap to a second line if there are too many */
-        gap: 10px;          /* Space between Home, About Us, etc. */
-        padding: 5px 0;
-    }
-
-    .nav-menu a {
-        font-size: 13px;    /* Smaller text for mobile */
-        padding: 5px 8px;
-    }
-}
-/* Temporarily hide the error message area */
-.error-message, .gm-err-container {
-    display: none !important;
-}
-@media screen and (max-width: 768px) {
-    /* 1. This stops the header from blocking the page */
-    .site-header {
-        position: relative !important;
-        padding: 10px 0 !important;
-    }
-
-    /* 2. This compresses the menu into a horizontal row */
-    .nav-links {
-        display: flex !important;
-        flex-direction: row !important; /* Forces Home, About, etc. to be side-by-side */
-        flex-wrap: wrap !important;     /* Allows a second row if it's too tight */
-        justify-content: center !important;
-        gap: 8px !important;            /* Tightens space between links */
-        padding: 5px 0 !important;
-    }
-
-    /* 3. Make the text smaller so it fits */
-    .nav-links a {
-        font-size: 12px !important;
-        padding: 4px 6px !important;
-    }
+    /* Footer columns stack */
+    .footer-grid {
+        flex-direction: column;
+        text-align: center;
+    }
 }
