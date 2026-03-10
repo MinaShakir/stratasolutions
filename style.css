@@ -1203,3 +1203,107 @@ footer .footer-logo, footer img {
         padding: 4px 6px !important;
     }
 }
+/* =========================================
+   NEW LAYOUT FIXES (Paste at the very bottom)
+   ========================================= */
+
+/* 1. HEADER & LOGO: Larger logo and single-line nav */
+.site-logo, .brand-container img {
+    height: 70px !important; /* Makes logo bigger */
+    width: auto !important;
+}
+
+.nav-links, .nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Prevents menu from breaking into 2 lines */
+    gap: 25px !important;
+    list-style: none !important;
+}
+
+.nav-links a, .nav-menu a {
+    white-space: nowrap !important; /* Keeps "Our Services" etc. on one line */
+}
+
+/* 2. SERVICES & TESTIMONIALS: Side-by-Side Row Fix */
+.service-links-grid, 
+.testimonial-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important; 
+    justify-content: center !important;
+    gap: 25px !important;
+    width: 100% !important;
+}
+
+.service-card, 
+.testimonial-item {
+    flex: 1 1 300px !important; /* Allows them to sit side-by-side */
+    max-width: 380px !important; /* Prevents them from getting too wide */
+    min-width: 280px !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 3. CONTACT SECTION: Details and Form Side-by-Side */
+.contact-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 50px !important;
+    margin-top: 40px !important;
+}
+
+.contact-info-col, 
+.contact-form-col {
+    flex: 1 !important;
+    width: 50% !important;
+}
+
+/* 4. FOOTER: Polished Alignment */
+.footer-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+.footer-branding {
+    flex: 1.5 !important;
+}
+
+.footer-column {
+    flex: 1 !important;
+    text-align: left !important;
+}
+
+.footer-column ul {
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* 5. MOBILE RESPONSIVENESS: Stacks only on small screens */
+@media screen and (max-width: 992px) {
+    .contact-grid, 
+    .footer-grid,
+    .service-links-grid,
+    .testimonial-grid {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .contact-info-col, 
+    .contact-form-col,
+    .footer-column {
+        width: 100% !important;
+        text-align: center !important;
+        margin-bottom: 30px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+}
