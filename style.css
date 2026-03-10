@@ -490,6 +490,7 @@ main, .hero-section {
 
 .testimonial-grid {
     display: grid;
+    /* This ensures cards stay at least 300px wide and fill the row */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
@@ -525,6 +526,7 @@ main, .hero-section {
 
 .contact-grid {
     display: grid;
+    /* This creates two columns. 1fr for details, 1.5fr for the form */
     grid-template-columns: 1fr 1.5fr;
     gap: 50px;
     align-items: flex-start;
@@ -1278,4 +1280,16 @@ footer .footer-logo, footer img {
         font-size: 12px !important;
         padding: 4px 6px !important;
     }
+}
+/* Remove excess white space at the very top */
+#primary-services {
+    margin-top: 0 !important;
+    padding-top: 20px;
+}
+
+/* Footer Background Color */
+.footer {
+    background-color: #f4f4f4 !important; /* Light Gray */
+    color: #333 !important;
+    padding: 30px 0;
 }
