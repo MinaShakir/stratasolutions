@@ -225,7 +225,7 @@ main, .hero-section {
  * HERO SECTION
  */
 .hero-section {
-    background-image: url('images/homerenovation.jpg') !important;
+    background-image: url('images/home-renovation.jpg') !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: cover !important;
